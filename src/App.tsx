@@ -78,41 +78,47 @@ interface User {
 }
 
 const UserList = () => {
-  const [allUsers, setAllUsers] = useState<User[]>([]);
-  const [users, setUsers] = useState<User[]>([]);
+  /* State Analasis
+  Input:
+  1. allUsers
+  2. searchTerm
+  Ouput:
+  + filtered result
+  */
 
-  // TODO: but why need `useEffect`?
+  const [allUsers, setAllUsers] = useState<User[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
+
+  // Q: Why need `useEffect`? A: Otherwise `fetchUsers()` is called for every rendering
   useEffect(() => {
     fetchUsers().then((fetchedUsers) => {
       setAllUsers(fetchedUsers);
-      setUsers(fetchedUsers);
     });
   }, []); // Empty dependency array means this runs only once on mount.
+  // TODO: But what is the "dependency array"?
 
-  const userListings = users.map((user) => {
-    return (
-      <div key={user.id} style={{ display: "flex", gap: 3 }}>
-        <span>{user.id}</span>
-        <span>{user.name}</span>
-        <span>{user.role}</span>
-      </div>
-    );
-  });
+  const userListings = allUsers
+    .filter((user) => {
+      return user.name.toLowerCase().includes(searchTerm.toLowerCase());
+    })
+    .map((user) => {
+      return (
+        <div key={user.id} style={{ display: "flex", gap: 3 }}>
+          <span>{user.id}</span>
+          <span>{user.name}</span>
+          <span>{user.role}</span>
+        </div>
+      );
+    });
 
-  const search = (keyword: string) => {
-    console.debug("search triggered");
-    if (!keyword.trim() || 0 == keyword.trim().length) {
-      console.debug("no keyword");
-      console.debug(allUsers);
-      setUsers(allUsers);
+  // TODO: rename this method  
+  const search = (searchTerm: string) => {
+    if (!searchTerm.trim() || 0 == searchTerm.trim().length) {
+      console.debug("no search term");
+      setSearchTerm("");
       return;
     }
-
-    // Filter based on keyword, for example
-    const newUsers = allUsers.filter((user) =>
-      user.name.toLowerCase().includes(keyword.toLowerCase()),
-    );
-    setUsers(newUsers);
+    setSearchTerm(searchTerm);
   };
 
   return (
