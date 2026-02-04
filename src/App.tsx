@@ -36,7 +36,7 @@ const StarRating = ({ maxStars, currentRating, onChange }: StarRatingProps) => {
       starSymbol = '★'
     }
     const star = <span
-      style={{ cursor: 'pointer' }}
+      style={{ cursor: 'pointer', fontSize: '24px' }}
       key={`${index}`}
       onClick={() => { handleClick(index) }}>{starSymbol}
     </span>
@@ -46,7 +46,7 @@ const StarRating = ({ maxStars, currentRating, onChange }: StarRatingProps) => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <span>How would you rate it?</span>
-      <div style={{ display: "flex", flexDirection: "row" }}>
+      <div style={{ display: "flex", flexDirection: "row", gap: 3 }}>
         {stars}
       </div>
     </div>
