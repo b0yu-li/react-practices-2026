@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { Toggle } from "./components/Toggle";
 
 function App() {
   const [currentRating, setCurrentRating] = useState(5);
@@ -15,6 +16,8 @@ function App() {
       ></StarRating>
       <p>Practice 2: The "Filterable User List" (Intermediate)</p>
       <UserList></UserList>
+      <p>Practice 3: The "Custom Hook" (Intermediate/Advanced)</p>
+      <Toggle></Toggle>
     </>
   );
 }
