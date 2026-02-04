@@ -95,7 +95,6 @@ const UserList = () => {
       setAllUsers(fetchedUsers);
     });
   }, []); // Empty dependency array means this runs only once on mount.
-  // TODO: But what is the "dependency array"?
 
   const userListings = allUsers
     .filter((user) => {
@@ -126,6 +125,7 @@ const UserList = () => {
       <span style={{ fontSize: "24px" }}>User List</span>
       <input
         placeholder="Search here"
+        value={searchTerm}
         onChange={(e) => search(e.target.value)}
       ></input>
       <div>{userListings}</div>
