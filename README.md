@@ -24,7 +24,9 @@
 
 **Focus:** State Design (Derived State), Side Effects, Web Concepts.
 
-**The Prompt:** Fetch a list of users (mocked) and provide a search bar to filter them by name. **Constraint:** The API is slow. Do not filter on the _server_; filter on the _client_.
+**The Prompt:** Fetch a list of users (mocked) and provide a search bar to filter them by name.
+
+**Constraint:** The API is slow. Do not filter on the _server_; filter on the _client_.
 
 **The Mock Data:**
 
