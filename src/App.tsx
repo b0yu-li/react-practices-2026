@@ -121,11 +121,12 @@ const UserList = () => {
     });
 
   const handleSearchChange = (searchTerm: string) => {
-    if (!searchTerm.trim() || 0 == searchTerm.trim().length) {
-      console.debug("no search term");
-      setSearchTerm("");
-      return;
-    }
+    // Better let the state reflect the input exactly.
+    // if (!searchTerm.trim() || 0 == searchTerm.trim().length) {
+    //   console.debug("no search term");
+    //   setSearchTerm("");
+    //   return;
+    // }
     setSearchTerm(searchTerm);
   };
 
