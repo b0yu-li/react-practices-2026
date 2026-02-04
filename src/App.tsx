@@ -109,7 +109,7 @@ const UserList = () => {
     }
 
     // Filter based on keyword, for example
-    const newUsers = users.filter((user) =>
+    const newUsers = allUsers.filter((user) =>
       user.name.toLowerCase().includes(keyword.toLowerCase()),
     );
     setUsers(newUsers);
