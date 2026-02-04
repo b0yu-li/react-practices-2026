@@ -26,7 +26,8 @@ export const Toggle = () => {
 const useToggle = (initialValue: boolean) => {
   const [value, setValue] = useState<boolean>(initialValue);
   const toggle = () => {
-    setValue(!value);
+    // Set it to the opposite of whatever it is CURRENTLY in React's brain
+    setValue((prev) => !prev);
   };
   return { value, toggle };
 };
