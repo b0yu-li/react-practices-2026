@@ -23,7 +23,8 @@ export const Toggle = () => {
   );
 };
 
-const useToggle = (initialValue: boolean) => {
+// eslint-disable-next-line react-refresh/only-export-components
+export const useToggle = (initialValue: boolean) => {
   const [value, setValue] = useState<boolean>(initialValue);
   const toggle = () => {
     // Set it to the opposite of whatever it is CURRENTLY in React's brain
