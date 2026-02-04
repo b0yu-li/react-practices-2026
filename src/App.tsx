@@ -110,8 +110,7 @@ const UserList = () => {
       );
     });
 
-  // TODO: rename this method  
-  const search = (searchTerm: string) => {
+  const handleSearchChange = (searchTerm: string) => {
     if (!searchTerm.trim() || 0 == searchTerm.trim().length) {
       console.debug("no search term");
       setSearchTerm("");
@@ -126,7 +125,7 @@ const UserList = () => {
       <input
         placeholder="Search here"
         value={searchTerm}
-        onChange={(e) => search(e.target.value)}
+        onChange={(e) => handleSearchChange(e.target.value)}
       ></input>
       <div>{userListings}</div>
     </div>
