@@ -30,7 +30,7 @@ const StarRating = ({ maxStars = 5, currentRating, onChange }: StarRatingProps) 
   };
 
   const buildStars = (() => {
-    const indices = Array.from({ length: maxStars }, (_, k) => { return k + 1 })
+    const indices = Array.from({ length: maxStars }, (_, index) => { return index + 1 })
     return indices.map(index => {
       return <span
         style={{ cursor: 'pointer', fontSize: '24px' }}
