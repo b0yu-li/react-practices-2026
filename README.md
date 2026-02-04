@@ -1,73 +1,50 @@
-# React + TypeScript + Vite
+### 🟢 Practice 1: The "Star Rating" (Easy)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Focus:** Component Design, Props API, "Forced Simplicity".
 
-Currently, two official plugins are available:
+**The Prompt:** Build a `StarRating` component that accepts:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. `maxStars` (number, default 5).
 
-## React Compiler
+2. `currentRating` (number).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+3. `onChange` (callback).
 
-## Expanding the ESLint configuration
+**The Challenge:**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Render the stars dynamically based on `maxStars`.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Clicking a star should update the rating.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Constraint:** Do not import any icons. Use a simple text character `★` and `☆`.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+### 🟡 Practice 2: The "Filterable User List" (Intermediate)
+
+**Focus:** State Design (Derived State), Side Effects, Web Concepts.
+
+**The Prompt:** Fetch a list of users (mocked) and provide a search bar to filter them by name. **Constraint:** The API is slow. Do not filter on the _server_; filter on the _client_.
+
+**The Mock Data:**
+
+```typescript
+const USERS = [
+  { id: 1, name: "Alice Johnson", role: "Admin" },
+  { id: 2, name: "Bob Smith", role: "User" },
+  { id: 3, name: "Charlie Brown", role: "User" },
+];
+const fetchUsers = () => Promise.resolve(USERS);
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 🔴 Practice 3: Custom Hook & Testing (Intermediate/Advanced)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Focus:** Hook Design, Testing Frameworks (Jest/RTL).
+
+**The Prompt:**
+
+1. Write a custom hook `useToggle(initialValue)` that returns `[value, toggle]`.
+
+2. Write a **Unit Test** for this hook.
