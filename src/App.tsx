@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "./App.css";
 import { Toggle } from "./components/Toggle";
 
@@ -99,10 +99,17 @@ const UserList = () => {
     });
   }, []); // Empty dependency array means this runs only once on mount.
 
-  const userListings = allUsers
-    .filter((user) => {
+  // useMemo to optimize performance
+  // filteredUsers depends on:
+  // 1. allUsers
+  // 2. searchTerm
+  const filteredUsers = useMemo(() => {
+    return allUsers.filter((user) => {
       return user.name.toLowerCase().includes(searchTerm.toLowerCase());
     })
+  }, [allUsers, searchTerm])
+
+  const userListings = filteredUsers
     .map((user) => {
       return (
         <div key={user.id} style={{ display: "flex", gap: 3 }}>
