@@ -36,6 +36,7 @@ const StarRating = ({ maxStars, currentRating, onChange }: StarRatingProps) => {
       starSymbol = '★'
     }
     const star = <span
+      style={{ cursor: 'pointer' }}
       key={`${index}`}
       onClick={() => { handleClick(index) }}>{starSymbol}
     </span>
