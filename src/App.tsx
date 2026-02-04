@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <StarRating
-        maxStars={5}
+        maxStars={10}
         currentRating={currentRating}
         onChange={(newRating) => {
           setCurrentRating(newRating)
@@ -17,12 +17,12 @@ function App() {
 }
 
 interface StarRatingProps {
-  maxStars: number,
+  maxStars?: number,
   currentRating: number,
   onChange: (newRating: number) => void
 }
 
-const StarRating = ({ maxStars, currentRating, onChange }: StarRatingProps) => {
+const StarRating = ({ maxStars = 5, currentRating, onChange }: StarRatingProps) => {
 
   const handleClick = (index: number) => {
     console.debug(`Star no. ${index} clicked`);
