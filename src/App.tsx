@@ -29,9 +29,8 @@ const StarRating = ({ maxStars = 5, currentRating, onChange }: StarRatingProps) 
     onChange(index);
   };
 
-  const buildStars = (() => {
-    const indices = Array.from({ length: maxStars }, (_, index) => { return index + 1 })
-    return indices.map(index => {
+  const stars = Array.from({ length: maxStars }, (_, index) => { return index + 1 })
+    .map(index => {
       return <span
         style={{ cursor: 'pointer', fontSize: '24px' }}
         key={`${index}`}
@@ -39,13 +38,12 @@ const StarRating = ({ maxStars = 5, currentRating, onChange }: StarRatingProps) 
         onClick={() => { handleClick(index) }}>{index <= currentRating ? '★' : '☆'}
       </span>
     })
-  })
 
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <span>How would you rate it?</span>
       <div style={{ display: "flex", flexDirection: "row", gap: 3 }}>
-        {buildStars()}
+        {stars}
       </div>
     </div>
   )
