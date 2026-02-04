@@ -35,6 +35,7 @@ const StarRating = ({ maxStars = 5, currentRating, onChange }: StarRatingProps) 
       return <span
         style={{ cursor: 'pointer', fontSize: '24px' }}
         key={`${index}`}
+        role='button'
         onClick={() => { handleClick(index) }}>{index <= currentRating ? '★' : '☆'}
       </span>
     })
