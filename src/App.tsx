@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <StarRating
-        maxStars={10}
+        maxStars={7}
         currentRating={currentRating}
         onChange={(newRating) => {
           setCurrentRating(newRating)
@@ -30,7 +30,7 @@ const StarRating = ({ maxStars = 5, currentRating, onChange }: StarRatingProps) 
   };
 
   const stars = [];
-  for (let index = 0; index < maxStars; index++) {
+  for (let index = 1; index <= maxStars; index++) {
     let starSymbol = '☆'
     if (index <= currentRating) {
       starSymbol = '★'
